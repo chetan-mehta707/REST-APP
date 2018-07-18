@@ -9,7 +9,7 @@ import org.junit.Test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class BitcoinSummaryTest {
+public class BitcoinSummaryUT {
 	@BeforeClass
 	public static void init() {
 		RestAssured.baseURI = "http://localhost";
