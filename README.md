@@ -19,9 +19,9 @@ Server : Apache Tomcat 8.5 .
 JDK : 1.8 .  
 Base URI : localhost:8080/BitcoinSummary/btc/ .  
 
-API for getting Bitcoin price : https://api.gemini.com/v1/trades/btcusd?since={time} .    This API will return a ***JSON array*** of the historical Bitcoin prices of trading(buy and sell) since the ***time*** given as a parameter. The ***time*** parameter takes epoch time as an input. Our API consumes the duration(in minutes) sent as part of request, generates the epoch time from that and feed it as an input to the above API.
+API for getting Bitcoin price : https://api.gemini.com/v1/trades/btcusd?since={time} .    This API will return a ***JSON array*** of the historical Bitcoin prices of trading(buy and sell) since the ***time*** given as a parameter. The ***time*** parameter takes epoch time as an input. Our API consumes the duration(in minutes) sent as part of request, generates the epoch time from that and feeds it as an input to the above API.
 
-Our Application is divided into four modules(packages) viz: Service, data, Model and JUnit.
+Our Application is divided into four modules(packages) viz: Service, Data, Model and JUnit.
 1. ***com.moneytap.service.BitcoinDetailService*** is a Service class containing the two API's.
 2. ***com.moneytap.data.BitcoinDetails*** class has the core business logic for calling the gemini API for getting data and manipulating the data.
 3. ***com.moneytap.model.BitcoinPrice*** is used for providing the POJO object for JSON and XML binding.
