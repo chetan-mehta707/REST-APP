@@ -42,3 +42,6 @@ Median : http://localhost:8080/BitcoinSummary/btc/median/10 .
 ## Testing ##
 We have implemented JUnit test cases for testing the API's in the class ***com.moneytap.junit.BitcoinSummaryUT*** .
 For running the Test cases right click on ***BitcoinSummaryUT.java*** and click Run as ***JUnit Test***
+
+## Assumption ##
+***duration*** parameter is assumed to be an integer having duration in minutes.
