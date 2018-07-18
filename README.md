@@ -25,7 +25,7 @@ Our Application is divided into four modules(packages) viz: Service, Data, Model
 1. ***com.moneytap.service.BitcoinDetailService*** is a Service class containing the two API's.
 2. ***com.moneytap.data.BitcoinDetails*** class has the core business logic for calling the gemini API for getting data and manipulating the data.
 3. ***com.moneytap.model.BitcoinPrice*** is used for providing the POJO object for JSON and XML binding.
-4. ***com.moneytap.junit.BitcoinSummaryTest*** is used for Unit Testing of the two API's.
+4. ***com.moneytap.junit.BitcoinSummaryUT*** is used for Unit Testing of the two API's.
 
 ## Setup ##
 Clone the repository.
@@ -38,5 +38,5 @@ Mean : http://localhost:8080/BitcoinSummary/btc/mean/10 .
 Median : http://localhost:8080/BitcoinSummary/btc/median/10 .  
 
 ## Testing ##
-We have implemented JUnit test cases for testing the API's in the class ***com.moneytap.junit.BitcoinSummaryTest*** .
-For running the Test cases right click on ***BitcoinSummaryTest.java*** and click Run as ***JUnit Test***
+We have implemented JUnit test cases for testing the API's in the class ***com.moneytap.junit.BitcoinSummaryUT*** .
+For running the Test cases right click on ***BitcoinSummaryUT.java*** and click Run as ***JUnit Test***
