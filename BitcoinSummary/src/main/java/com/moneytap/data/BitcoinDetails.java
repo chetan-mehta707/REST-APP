@@ -91,7 +91,7 @@ public class BitcoinDetails {
 				sellPriceMean += price;
 			}
 			sellPriceMean /= sellPriceList.size();
-			btcPrice.setSellPrice(String.valueOf(sellPriceMean));
+			btcPrice.setSellPrice(String.format("%1.2f",sellPriceMean));
 		}else{
 			btcPrice.setSellPrice("NA");
 		}
@@ -101,7 +101,7 @@ public class BitcoinDetails {
 				buyPriceMean += price;
 			}
 			buyPriceMean /= buyPriceList.size();
-			btcPrice.setBuyPrice(String.valueOf(buyPriceMean));
+			btcPrice.setBuyPrice(String.format("%1.2f", buyPriceMean));
 		}else{
 			btcPrice.setBuyPrice("NA");
 		}
@@ -125,7 +125,7 @@ public class BitcoinDetails {
 				sellPriceMean = sellPriceList.get(index);
 			}
 			System.out.println("sell price median:"+sellPriceMean);
-			btcPrice.setSellPrice(String.valueOf(sellPriceMean));
+			btcPrice.setSellPrice(String.format("%1.2f",sellPriceMean));
 		}else{
 			btcPrice.setSellPrice("NA");
 		}
@@ -139,15 +139,15 @@ public class BitcoinDetails {
 				buyPriceMean = buyPriceList.get(index);
 			}
 			System.out.println("buy price median:"+buyPriceMean);
-			btcPrice.setBuyPrice(String.valueOf(buyPriceMean));
+			btcPrice.setBuyPrice(String.format("%1.2f",buyPriceMean));
 		}else{
 			btcPrice.setBuyPrice("NA");
 		}
 		return btcPrice;
 	}
 
-//	public static void main(String[] args){
-//		System.out.println(getMeanPrice(50));
-//		System.out.println(getMedianPrice(50));
-//	}
+	//	public static void main(String[] args){
+	//		System.out.println(getMeanPrice(50));
+	//		System.out.println(getMedianPrice(50));
+	//	}
 }
