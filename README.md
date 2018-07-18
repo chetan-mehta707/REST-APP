@@ -2,12 +2,12 @@
 We have designed two REST API's for getting the average and median price of the bitcoin for a mentioned duration.
 
 ### API Overview :  
-1.  Mean : Will return the mean of buy and sale price since the duration(in minutes).
+1.  Mean : Will return the JSON containing mean of buy and sale price since the duration(in minutes).
     http://localhost:8080/BitcoinSummary/btc/mean/{duration} .  
     eg : http://localhost:8080/BitcoinSummary/btc/mean/10 .   
     Sample Output : {"currency":"USD","sellPrice":"7480.18","buyPrice":"7491.44"}
           
-2.  Median : Will return the median of buy and sale price since the duration(in minutes).
+2.  Median : Will return the JSON containing median of buy and sale price since the duration(in minutes).
     http://localhost:8080/BitcoinSummary/btc/median/{duration} .  
     eg : http://localhost:8080/BitcoinSummary/btc/median/10 .   
     Sample Output : {"currency":"USD","sellPrice":"7473.52","buyPrice":"7487.71"}
@@ -17,6 +17,8 @@ REST API Library  : Jersey .
 Build Tool : Maven .  
 Server : Apache Tomcat 8.5 .  
 JDK : 1.8 .  
+XML Binding : JAXB .  
+JSON BInding : jersey-json .  
 Base URI : localhost:8080/BitcoinSummary/btc/ .  
 
 API for getting Bitcoin price : https://api.gemini.com/v1/trades/btcusd?since={time} .    This API will return a ***JSON array*** of the historical Bitcoin prices of trading(buy and sell) since the ***time*** given as a parameter. The ***time*** parameter takes epoch time as an input. Our API consumes the duration(in minutes) sent as part of request, generates the epoch time from that and feeds it as an input to the above API.
