@@ -2,7 +2,6 @@ package com.moneytap.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
 public class BitcoinPrice {
 
 	private String currency = "USD";

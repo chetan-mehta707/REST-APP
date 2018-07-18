@@ -15,7 +15,7 @@ public class BitcoinDetailService {
 
 	@GET
 	@Path("/mean/{duration}")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response getMean(@PathParam("duration") int duration) {
 		BitcoinDetails btcDetails = new BitcoinDetails();
 		BitcoinPrice btcObj = btcDetails.getMeanPrice(duration);
@@ -24,7 +24,7 @@ public class BitcoinDetailService {
 
 	@GET
 	@Path("/median/{duration}")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response getMedian(@PathParam("duration") int duration) {
 		BitcoinDetails btcDetails = new BitcoinDetails();
 		BitcoinPrice btcObj = btcDetails.getMedianPrice(duration);
