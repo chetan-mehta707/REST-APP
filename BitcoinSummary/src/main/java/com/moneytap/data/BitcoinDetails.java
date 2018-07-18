@@ -18,7 +18,7 @@ import com.moneytap.model.BitcoinPrice;
 
 public class BitcoinDetails {
 
-	private static String getBitcoinHistory(int duration) {
+	private String getBitcoinHistory(int duration) {
 		long time = Instant.now().minus(duration, ChronoUnit.MINUTES).toEpochMilli();
 		System.out.println("time here:"+time);
 		String output = "";
@@ -50,7 +50,7 @@ public class BitcoinDetails {
 		return output;
 	}
 
-	public static ArrayList<ArrayList<Double>> getPriceList(int duration){
+	private ArrayList<ArrayList<Double>> getPriceList(int duration){
 		String priceHistory = getBitcoinHistory(duration);
 		JSONArray priceArr = new JSONArray(priceHistory);
 		ArrayList<Double> sellPriceList = new ArrayList<Double>();
@@ -78,7 +78,7 @@ public class BitcoinDetails {
 	}
 
 
-	public static BitcoinPrice getMeanPrice(int duration){
+	public BitcoinPrice getMeanPrice(int duration){
 		ArrayList<ArrayList<Double>> sellBuyList = getPriceList(duration);
 		ArrayList<Double> sellPriceList = sellBuyList.get(0);
 		ArrayList<Double> buyPriceList = sellBuyList.get(1);
@@ -108,7 +108,46 @@ public class BitcoinDetails {
 		return btcPrice;
 	}
 
-	public static void main(String[] args){
-		System.out.println(getMeanPrice(50));
+	public BitcoinPrice getMedianPrice(int duration){
+		ArrayList<ArrayList<Double>> sellBuyList = getPriceList(duration);
+		ArrayList<Double> sellPriceList = sellBuyList.get(0);
+		ArrayList<Double> buyPriceList = sellBuyList.get(1);
+
+		double sellPriceMean = 0;
+		double buyPriceMean = 0;
+		BitcoinPrice btcPrice = new BitcoinPrice();
+		if(sellPriceList.size() > 0){
+			if(sellPriceList.size() % 2 == 0) {
+				int index = sellPriceList.size()/2;
+				sellPriceMean = (sellPriceList.get(index-1) + sellPriceList.get(index))/2;
+			}else {
+				int index = sellPriceList.size()/2;
+				sellPriceMean = sellPriceList.get(index);
+			}
+			System.out.println("sell price median:"+sellPriceMean);
+			btcPrice.setSellPrice(String.valueOf(sellPriceMean));
+		}else{
+			btcPrice.setSellPrice("NA");
+		}
+
+		if(buyPriceList.size() > 0){
+			if(buyPriceList.size() % 2 == 0) {
+				int index = buyPriceList.size()/2;
+				buyPriceMean = (buyPriceList.get(index-1) + buyPriceList.get(index))/2;
+			}else {
+				int index = buyPriceList.size()/2;
+				buyPriceMean = buyPriceList.get(index);
+			}
+			System.out.println("buy price median:"+buyPriceMean);
+			btcPrice.setBuyPrice(String.valueOf(buyPriceMean));
+		}else{
+			btcPrice.setBuyPrice("NA");
+		}
+		return btcPrice;
 	}
+
+//	public static void main(String[] args){
+//		System.out.println(getMeanPrice(50));
+//		System.out.println(getMedianPrice(50));
+//	}
 }
