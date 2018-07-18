@@ -18,11 +18,18 @@ public class BitcoinDetailService {
 	@Produces(MediaType.APPLICATION_XML)
 	public Response getMean(@PathParam("duration") int duration) {
 		BitcoinDetails btcDetails = new BitcoinDetails();
-		 BitcoinPrice btcObj = btcDetails.getMeanPrice(duration);
+		BitcoinPrice btcObj = btcDetails.getMeanPrice(duration);
 		return Response.status(200).entity(btcObj).build();
 	}
 
-	
+	@GET
+	@Path("/median/{duration}")
+	@Produces(MediaType.APPLICATION_XML)
+	public Response getMedian(@PathParam("duration") int duration) {
+		BitcoinDetails btcDetails = new BitcoinDetails();
+		BitcoinPrice btcObj = btcDetails.getMedianPrice(duration);
+		return Response.status(200).entity(btcObj).build();
+	}
 
-	
+
 }
