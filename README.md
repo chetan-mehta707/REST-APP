@@ -24,10 +24,10 @@ Base URI : localhost:8080/BitcoinSummary/btc/ .
 API for getting Bitcoin price : https://api.gemini.com/v1/trades/btcusd?since={time} .    This API will return a ***JSON array*** of the historical Bitcoin prices of trading(buy and sell) since the ***time*** given as a parameter. The ***time*** parameter takes epoch time as an input. Our API consumes the duration(in minutes) sent as part of request, generates the epoch time from that and feeds it as an input to the above API.
 
 Our Application is divided into four modules(packages) viz: Service, Data, Model and JUnit.
-1. ***com.moneytap.service.BitcoinDetailService*** is a Service class containing the two API's.
-2. ***com.moneytap.data.BitcoinDetails*** class has the core business logic for calling the gemini API for getting data and manipulating the data.
-3. ***com.moneytap.model.BitcoinPrice*** is used for providing the POJO object for JSON and XML binding.
-4. ***com.moneytap.junit.BitcoinSummaryUT*** is used for Unit Testing of the two API's.
+1. ***BitcoinDetailService*** is a Service class containing the two API's.
+2. ***BitcoinDetails*** class has the core business logic for calling the gemini API for getting data and manipulating the data.
+3. ***BitcoinPrice*** is used for providing the POJO object for JSON and XML binding.
+4. ***BitcoinSummaryUT*** is used for Unit Testing of the two API's.
 
 ## Setup ##
 Clone the repository.
@@ -40,7 +40,7 @@ Mean : http://localhost:8080/BitcoinSummary/btc/mean/10 .
 Median : http://localhost:8080/BitcoinSummary/btc/median/10 .  
 
 ## Testing ##
-We have implemented JUnit test cases for testing the API's in the class ***com.moneytap.junit.BitcoinSummaryUT*** .
+We have implemented JUnit test cases for testing the API's in the class ***BitcoinSummaryUT*** .
 For running the Test cases right click on ***BitcoinSummaryUT.java*** and click Run as ***JUnit Test***
 
 ## Assumption ##
